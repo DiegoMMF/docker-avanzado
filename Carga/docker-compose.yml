@@ -1,0 +1,29 @@
+services:
+  backend1:
+    build:
+      context: ./sitio1
+    networks:
+      - red_balance
+
+  backend2:
+    build:
+      context: ./sitio2
+    networks:
+      - red_balance
+
+  backend3:
+    build:
+      context: ./sitio3
+    networks:
+      - red_balance
+
+  proxy:
+    build:
+      context: ./proxy
+    ports:
+      - "8080:80"
+    networks:
+      - red_balance
+
+networks:
+  red_balance:
